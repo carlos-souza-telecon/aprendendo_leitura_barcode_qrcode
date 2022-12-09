@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class ScannerPage extends StatefulWidget {
@@ -14,13 +12,13 @@ class _ScannerPageState extends State<ScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Leitura de código')),
+      appBar: AppBar(title: const Text('Leitura de código')),
       body: MobileScanner(
         allowDuplicates: false,
         onDetect: (barcode, args) {
           Navigator.pop(context, barcode.rawValue);
         },
-        fit: BoxFit.contain,
+        fit: BoxFit.cover,
       ),
     );
   }
